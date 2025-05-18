@@ -191,8 +191,282 @@ Para un hilo infinito:
 \hat{\boldsymbol{a}}_{\phi}.
 \]
 
-%\end{document}
+\newpage
 
+\section{Divergencia, Gradiente y Laplaciano}
+
+\subsection{Divergencia}
+
+\textbf{Cartesianas:}
+\begin{equation}
+    \nabla \cdot \mathbf{D} = \frac{\partial D_x}{\partial x} + \frac{\partial D_y}{\partial y} + \frac{\partial D_z}{\partial z}
+\end{equation}
+
+\textbf{Cilíndricas:}
+\begin{equation}
+    \nabla \cdot \mathbf{D} = \frac{1}{\rho} \frac{\partial}{\partial \rho} (\rho D_\rho) + \frac{1}{\rho} \frac{\partial D_\phi}{\partial \phi} + \frac{\partial D_z}{\partial z}
+\end{equation}
+
+\textbf{Esféricas:}
+\begin{equation}
+    \nabla \cdot \mathbf{D} = \frac{1}{r^2} \frac{\partial}{\partial r} (r^2 D_r) + \frac{1}{r \sin \theta} \frac{\partial}{\partial \theta} (\sin \theta D_\theta) + \frac{1}{r \sin \theta} \frac{\partial D_\phi}{\partial \phi}
+\end{equation}
+
+\subsection{Gradiente}
+
+\textbf{Cartesianas (rectangulares):}
+\begin{equation}
+    \nabla V = \frac{\partial V}{\partial x} \, \mathbf{a}_x + \frac{\partial V}{\partial y} \, \mathbf{a}_y + \frac{\partial V}{\partial z} \, \mathbf{a}_z
+\end{equation}
+
+\textbf{Cilíndricas:}
+\begin{equation}
+    \nabla V = \frac{\partial V}{\partial \rho} \, \mathbf{a}_\rho + \frac{1}{\rho} \frac{\partial V}{\partial \phi} \, \mathbf{a}_\phi + \frac{\partial V}{\partial z} \, \mathbf{a}_z
+\end{equation}
+
+\textbf{Esféricas:}
+\begin{equation}
+    \nabla V = \frac{\partial V}{\partial r} \, \mathbf{a}_r + \frac{1}{r} \frac{\partial V}{\partial \theta} \, \mathbf{a}_\theta + \frac{1}{r \sin \theta} \frac{\partial V}{\partial \phi} \, \mathbf{a}_\phi
+\end{equation}
+
+
+\subsection{Laplaciano}
+
+\textbf{Cartesianas:}
+\begin{equation}
+    \nabla^2 V = \frac{\partial^2 V}{\partial x^2} + \frac{\partial^2 V}{\partial y^2} + \frac{\partial^2 V}{\partial z^2}
+\end{equation}
+
+\textbf{Cilíndricas:}
+\begin{equation}
+    \nabla^2 V = \frac{1}{\rho} \frac{\partial}{\partial \rho} \left( \rho \frac{\partial V}{\partial \rho} \right) + \frac{1}{\rho^2} \frac{\partial^2 V}{\partial \phi^2} + \frac{\partial^2 V}{\partial z^2}
+\end{equation}
+
+\textbf{Esféricas:}
+\begin{equation}
+    \nabla^2 V = \frac{1}{r^2} \frac{\partial}{\partial r} \left( r^2 \frac{\partial V}{\partial r} \right) + \frac{1}{r^2 \sin \theta} \frac{\partial}{\partial \theta} \left( \sin \theta \frac{\partial V}{\partial \theta} \right) + \frac{1}{r^2 \sin^2 \theta} \frac{\partial^2 V}{\partial \phi^2}
+\end{equation}
+
+\subsection{Rotacional de un vector}
+
+\textbf{Cartesianas:}
+\[
+\nabla \times \vec{A} =
+\left( \frac{\partial A_z}{\partial y} - \frac{\partial A_y}{\partial z} \right) \hat{x}
++ \left( \frac{\partial A_x}{\partial z} - \frac{\partial A_z}{\partial x} \right) \hat{y}
++ \left( \frac{\partial A_y}{\partial x} - \frac{\partial A_x}{\partial y} \right) \hat{z}
+\]
+
+
+\textbf{Cilíndricas:}
+
+\[
+\nabla \times \vec{A} =
+\left( \frac{1}{\rho} \frac{\partial A_z}{\partial \phi} - \frac{\partial A_\phi}{\partial z} \right) \hat{\rho}
++ \left( \frac{\partial A_\rho}{\partial z} - \frac{\partial A_z}{\partial \rho} \right) \hat{\phi}
++ \frac{1}{\rho} \left( \frac{\partial (\rho A_\phi)}{\partial \rho} - \frac{\partial A_\rho}{\partial \phi} \right) \hat{z}
+\]
+
+
+
+\textbf{Esféricas:}
+
+\[
+\nabla \times \vec{A} =
+\frac{1}{r \sin\theta}
+\left[
+\frac{\partial}{\partial \theta} (A_\phi \sin\theta) - \frac{\partial A_\theta}{\partial \phi}
+\right] \hat{r}
++ \frac{1}{r}
+\left[
+\frac{1}{\sin\theta} \frac{\partial A_r}{\partial \phi} - \frac{\partial}{\partial r}(r A_\phi)
+\right] \hat{\theta}
++ \frac{1}{r}
+\left[
+\frac{\partial}{\partial r}(r A_\theta) - \frac{\partial A_r}{\partial \theta}
+\right] \hat{\phi}
+\]
+
+
+
+
+\section{Cambios de variable para coordenadas}
+
+
+\section{1. Rectangulares a Cilíndricas}
+\begin{equation}
+\rho = \sqrt{x^2 + y^2} \qquad 
+\phi = \tan^{-1}\left( \frac{y}{x} \right) \qquad 
+z = z
+\end{equation}
+
+
+\begin{equation}
+    \hat{a}_\rho = \hat{a}_x \cos \phi + \hat{a}_y \sin \phi
+\end{equation}
+\begin{equation}
+    \hat{a}_\phi = -\hat{a}_x \sin \phi + \hat{a}_y \cos \phi
+\end{equation}
+\begin{equation}
+    \hat{a}_z = \hat{a}_z
+\end{equation}
+
+\section{2. Cilíndricas a Rectangulares}
+\begin{equation}
+x = \rho \cos \phi \qquad 
+y = \rho \sin \phi \qquad 
+z = z
+\end{equation}
+
+
+\begin{equation}
+    \hat{a}_x = \hat{a}_\rho \cos \phi + \hat{a}_\phi \sin \phi
+\end{equation}
+\begin{equation}
+    \hat{a}_y = -\hat{a}_\rho \sin \phi + \hat{a}_\phi \cos \phi
+\end{equation}
+\begin{equation}
+    \hat{a}_z = \hat{a}_z
+\end{equation}
+
+\section{3. Rectangulares a Esféricas}
+\begin{equation}
+r = \sqrt{x^2 + y^2 + z^2} \qquad 
+\theta = \cos^{-1} \left( \frac{z}{r} \right) \qquad 
+\phi = \tan^{-1} \left( \frac{y}{x} \right)
+\end{equation}
+
+
+\begin{equation}
+    \hat{a}_r = \hat{a}_x \sin \theta \cos \phi + \hat{a}_y \sin \theta \sin \phi + \hat{a}_z \cos \theta
+\end{equation}
+\begin{equation}
+    \hat{a}_\theta = \hat{a}_x \cos \theta \cos \phi + \hat{a}_y \cos \theta \sin \phi - \hat{a}_z \sin \theta
+\end{equation}
+\begin{equation}
+    \hat{a}_\phi = -\hat{a}_x \sin \phi + \hat{a}_y \cos \phi
+\end{equation}
+
+\section{4. Esféricas a Rectangulares}
+\begin{equation}
+x = r \sin \theta \cos \phi \qquad 
+y = r \sin \theta \sin \phi \qquad 
+z = r \cos \theta
+\end{equation}
+
+
+\begin{equation}
+    \hat{a}_x = \hat{a}_r \sin \theta \cos \phi + \hat{a}_\theta \cos \theta \cos \phi - \hat{a}_\phi \sin \phi
+\end{equation}
+\begin{equation}
+    \hat{a}_y = \hat{a}_r \sin \theta \sin \phi + \hat{a}_\theta \cos \theta \sin \phi + \hat{a}_\phi \cos \phi
+\end{equation}
+\begin{equation}
+    \hat{a}_z = \hat{a}_r \cos \theta - \hat{a}_\theta \sin \theta
+\end{equation}
+
+\newpage
+
+\section*{Integrales Comunes}
+
+\begin{align}
+    \int x^n \, dx &= \frac{x^{n+1}}{n+1} + C, \quad n \neq -1 \\[10pt]
+    \int \frac{dx}{x} &= \ln|x| + C \\[10pt]
+    \int e^{ax} \, dx &= \frac{e^{ax}}{a} + C \\[10pt]
+    \int a^{x} \, dx &= \frac{a^{x}}{\ln(a)} + C, \quad a > 0, a \neq 1 \\[10pt]
+    \int \ln(x) \, dx &= x \ln(x) - x + C
+\end{align}
+
+\section*{Integrales Trigonométricas}
+
+
+\begin{align}
+    \int \sin(ax) \, dx &= -\frac{1}{a} \cos(ax) + C \\[10pt]
+    \int \cos(ax) \, dx &= \frac{1}{a} \sin(ax) + C \\[10pt]
+    \int \tan(ax) \, dx &= \frac{1}{a} \ln|\sec(ax)| + C \\[10pt]
+    \int \cot(ax) \, dx &= \frac{1}{a} \ln|\sin(ax)| + C \\[10pt]
+    \int \sec(ax) \, dx &= \frac{1}{a} \ln|\sec(ax) + \tan(ax)| + C \\[10pt]
+    \int \frac{1}{\sin(x)} \, dx &= \int \csc(x) \, dx = \ln \left| \tan\left( \frac{x}{2} \right) \right| + C \\[10pt]
+    \int \sin^2(ax) \, dx &= \frac{x}{2} - \frac{\sin(2ax)}{4a} + C \\[10pt]
+    \int \cos^2(ax) \, dx &= \frac{x}{2} + \frac{\sin(2ax)}{4a} + C
+\end{align}
+
+
+\section*{Integrales que Involucran Funciones Inversas}
+
+\begin{align}
+    \int \frac{dx}{\sqrt{a^2 - x^2}} &= \sin^{-1}\left(\frac{x}{a}\right) + C \\[10pt]
+    \int \frac{dx}{\sqrt{x^2 - a^2}} &= \cosh^{-1}\left(\frac{x}{a}\right) + C \\[10pt]
+    \int \frac{dx}{a^2 + x^2} &= \frac{1}{a} \tan^{-1}\left(\frac{x}{a}\right) + C \\[10pt]
+    \int \frac{dx}{x \sqrt{x^2 - a^2}} &= \frac{1}{a} \sec^{-1}\left|\frac{x}{a}\right| + C
+\end{align}
+
+\section*{Integrales que Requieren Sustituciones Específicas}
+
+\begin{align}
+    \int \sqrt{a^2 - x^2} \, dx &= \frac{x}{2} \sqrt{a^2 - x^2} + \frac{a^2}{2} \sin^{-1}\left(\frac{x}{a}\right) + C \\[10pt]
+    \int \sqrt{x^2 + a^2} \, dx &= \frac{x}{2} \sqrt{x^2 + a^2} + \frac{a^2}{2} \ln\left| x + \sqrt{x^2 + a^2} \right| + C \\[10pt]
+    \int \sqrt{x^2 - a^2} \, dx &= \frac{x}{2} \sqrt{x^2 - a^2} - \frac{a^2}{2} \ln\left| x + \sqrt{x^2 - a^2} \right| + C 
+\end{align}
+
+\begin{equation}
+\int \frac{1}{(x + b)\sqrt{x + c}} \, dx = 
+\frac{2}{\sqrt{c - b}} \ln \left| 
+\frac{ \sqrt{x + c} + \sqrt{c - b} }{ \sqrt{x + c} - \sqrt{c - b} } 
+\right| + C
+\end{equation}
+
+
+\begin{equation}
+    \int \frac{dx}{\sqrt{x^2 + a^2}} = \ln\left| x + \sqrt{x^2 + a^2} \right| + C
+\end{equation}
+
+\begin{equation}
+    \int \frac{dx}{\sqrt{x^2 - a^2}} = \ln\left| x + \sqrt{x^2 - a^2} \right| + C
+\end{equation}
+
+\section*{Integrales con Productos de Funciones Trigonométricas}
+
+\begin{align}
+    \int x \sin(ax) \, dx &= -\frac{x}{a} \cos(ax) + \frac{1}{a^2} \sin(ax) + C \\[10pt]
+    \int x \cos(ax) \, dx &= \frac{x}{a} \sin(ax) + \frac{1}{a^2} \cos(ax) + C \\[10pt]
+    \int \sin(ax) \sin(bx) \, dx &= \frac{1}{2} \int [\cos((a-b)x) - \cos((a+b)x)] \, dx \\[10pt]
+    &= \frac{1}{2} \left( \frac{\sin((a-b)x)}{a-b} - \frac{\sin((a+b)x)}{a+b} \right) + C, \quad a \neq b \\[10pt]
+    \int \cos(ax) \cos(bx) \, dx &= \frac{1}{2} \int [\cos((a-b)x) + \cos((a+b)x)] \, dx \\[10pt]
+    &= \frac{1}{2} \left( \frac{\sin((a-b)x)}{a-b} + \frac{\sin((a+b)x)}{a+b} \right) + C, \quad a \neq b \\[10pt]
+    \int \sin(ax) \cos(bx) \, dx &= \frac{1}{2} \int [\sin((a+b)x) + \sin((a-b)x)] \, dx \\[10pt]
+    &= \frac{1}{2} \left( -\frac{\cos((a+b)x)}{a+b} + \frac{\cos((a-b)x)}{a-b} \right) + C, \quad a \neq b
+\end{align}
+
+\section*{Integral con Expresión Radical}
+
+\begin{align}
+    \int \frac{x}{\sqrt{x^2 + a^2}} \, dx &= \sqrt{x^2 + a^2} + C \\[10pt]
+    \int \frac{dx}{(x^2 + a^2)^{3/2}} &= \frac{x}{a^2 \sqrt{x^2 + a^2}} + C \\[10pt]
+    \int \frac{x \, dx}{(x^2 + a^2)^{3/2}} &= -\frac{1}{\sqrt{x^2 + a^2}} + C
+\end{align}
+
+
+\section*{Integrales de Funciones Exponenciales}
+
+\begin{align}
+    \int_0^{\infty} e^{-ax} \, dx &= \frac{1}{a}, \quad a > 0 \\[10pt]
+    \int_0^{\infty} x e^{-ax} \, dx &= \frac{1}{a^2}, \quad a > 0 \\[10pt]
+    \int_0^{\infty} x^2 e^{-ax} \, dx &= \frac{2}{a^3}, \quad a > 0
+\end{align}
+
+\section*{Integrales Especiales}
+
+\begin{align}
+    \int_0^{\infty} \frac{\sin x}{x} \, dx &= \frac{\pi}{2} \\[10pt]
+    \int_0^{\infty} \frac{\cos x}{x} \, dx &= 0 \\[10pt]
+    \int_0^{\pi/2} \ln (\cos x) \, dx &= -\frac{\pi}{2} \ln 2 \\[10pt]
+    \int_0^{\pi/2} \ln (\sin x) \, dx &= -\frac{\pi}{2} \ln 2 \\[10pt]
+    \int_0^{\infty} e^{-x^2} \, dx &= \frac{\sqrt{\pi}}{2} \\[10pt]
+    \int_{-\infty}^{\infty} e^{-x^2} \, dx &= \sqrt{\pi} \\[10pt]
+    \int_0^{\infty} \frac{x}{(x^2 + a^2)^{3/2}} \, dx &= \frac{1}{a} \\[10pt]
+    \int_0^{\infty} \frac{dx}{(x^2 + a^2)^{3/2}} \, dx &= \frac{1}{a^2}
+\end{align}
 
 
 
