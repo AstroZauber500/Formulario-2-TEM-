@@ -1,0 +1,200 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath, amssymb}
+\usepackage{geometry}
+\geometry{margin=2cm}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{enumitem}
+
+\title{Formulario de Magnetostática}
+\author{Tu Nombre}
+\date{\today}
+
+\begin{document}
+
+% =========================
+\section{Ley de Biot–Savart (en términos de \(\mathbf{H}\))}
+% =========================
+\subsection*{Forma diferencial}
+\[
+d\mathbf{H}
+  =\frac{I\,d\mathbf{l}\times\hat{\mathbf{R}}}{4\pi R^{2}}
+\qquad
+(\hat{\mathbf{R}}=\mathbf{R}/R)
+\]
+
+En coordenadas cilíndricas \(({\rho},\phi,z)\) para un filamento sobre el eje \(z\),
+\[
+d\mathbf{H}= \frac{I\,d\mathbf{l}l}{4\pi R^{2}}
+             \,\hat{\boldsymbol{a}}_{{\rho}}
+             \times\hat{\mathbf{R}}
+\]
+
+% =========================
+\subsection*{Contribuciones de corrientes}
+% =========================
+\begin{align}
+\mathbf{H}(\mathbf{r})
+  &=\frac{I}{4\pi}\int_{\text{línea}}
+      \frac{d\mathbf{l}\times\hat{\mathbf{R}}}{R^{2}}
+      &&\text{(corriente lineal \(I\))}\\[6pt]
+  &=\frac{1}{4\pi}\int_{\text{superficie}}
+      \frac{\mathbf{K}\times\hat{\mathbf{R}}}{R^{2}}\,
+      dS
+      &&\text{(corriente superficial \(\mathbf{K}\))}\\[6pt]
+  &=\frac{1}{4\pi}\int_{\text{volumen}}
+      \frac{\mathbf{J}\times\hat{\mathbf{R}}}{R^{2}}\,
+      dV
+      &&\text{(corriente volumétrica \(\mathbf{J}\))}
+\end{align}
+
+\subsection*{Fuerza de Lorentz}
+\begin{align}
+\mathbf{F}=Q\,\mathbf{u}\times\mathbf{B}
+\end{align}
+
+% =========================
+\section{Campo \(\mathbf{H}\) de un filamento finito en el eje \(z\)}
+% =========================
+Sea un conductor recto de longitud \(2L\) centrado en el origen,
+transporte de corriente \(I\) hacia \(+z\).
+Para un punto \(P({\rho},0,0)\) en el plano \(xy\):
+
+\[
+\mathbf{H}(r)=
+\frac{I}{4\pi {\rho}}\left(
+  \sin\alpha_{2}-\sin\alpha_{1}
+\right)\,\hat{\boldsymbol{a}}_{\phi},
+\]
+donde
+\(\alpha_{1}\) y \(\alpha_{2}\) son los ángulos
+entre el segmento \(P\)‑extremo y el eje \(r\).
+
+\textbf{Casos límite}
+\begin{itemize}
+  \item {\bf Semi‑infinito} \((L\to\infty\) solo en \(+z)\):
+        \(\alpha_{1}=0,\;\alpha_{2}=\pi/2\)
+        \[
+        \boxed{\mathbf{H}(r)=\dfrac{I}{4\pi {\rho}}\,\hat{\boldsymbol{a}}_{\phi}}
+        \]
+  \item {\bf Infinito} \((L\to\infty\) en ambas direcciones):
+        \(\alpha_{1}=-\pi/2,\;\alpha_{2}=+\pi/2\)
+        \[
+        \boxed{\mathbf{H}(r)=\dfrac{I}{2\pi {\rho}}\,\hat{\boldsymbol{a}}_{\phi}}
+        \]
+\end{itemize}
+
+% =========================
+\section{Ley de Ampère}
+% =========================
+\subsection*{Enunciado}
+La ley de Ampère establece que la integral de línea de \(\mathbf{H}\)
+alrededor de un camino cerrado equivale a la corriente neta \(I_{\mathrm{enc}}\)
+encerrada por dicho camino:
+\[
+\oint_{\mathcal{C}}\mathbf{H}\cdot d\boldsymbol{\ell}= I_{\mathrm{enc}}.
+\]
+
+\subsection*{Forma inversa}
+\[
+I_{\mathrm{enc}}=\oint_{\mathcal{C}}\mathbf{H}\cdot d\boldsymbol{\ell}.
+\]
+
+% =========================
+% =========================
+\subsection*{Aplicaciones típicas (con unidades)}
+% =========================
+\begin{itemize}
+  \item \textbf{Hilo recto infinito}  
+        \[
+        \mathbf{H} = \frac{I}{2\pi {\rho}}\,\hat{\boldsymbol{a}}_{\phi} \quad [\text{A/m}]
+        \]
+        Usando contorno circular alrededor del hilo.
+
+  \item \textbf{Solenoide largo}  
+        \[
+        \mathbf{H} = nI\,\hat{\boldsymbol{a}}_{z} \quad [\text{A/m}]
+        \]
+        Donde \(n\) es el número de vueltas por unidad de longitud.
+
+  \item \textbf{Toroide}  
+        \[
+        \mathbf{H} = \frac{NI}{2\pi {\rho}}\,\hat{\boldsymbol{a}}_{\phi} \quad [\text{A/m}]
+        \]
+        Siendo \(N\) el número total de espiras.
+
+  \item \textbf{Lámina infinita de corriente (densidad superficial \(K\))}  
+        \[
+        \mathbf{H} = \frac{K}{2}\,\hat{\boldsymbol{a}}_{\parallel} \quad [\text{A/m}]
+        \]
+        Donde \(K\) es la densidad de corriente superficial en [A/m] y el campo es paralelo a la lámina, orientado según la regla de la mano derecha.
+
+  \item \textbf{Línea de transmisión coaxial infinita}  
+        \[
+        \mathbf{H}({\rho}) = 
+        \begin{cases}
+        \dfrac{I\,{\rho}}{2\pi a^{2}}\,\hat{\boldsymbol{a}}_{\phi} & \text{si } {\rho} < a \\
+        \dfrac{I}{2\pi {\rho}}\,\hat{\boldsymbol{a}}_{\phi} & \text{si } a < {\rho} < b \\
+        0 & \text{si } {\rho} > b
+        \end{cases}
+        \quad [\text{A/m}]
+        \]
+        Donde \(a\) y \(b\) son los radios interno y externo, respectivamente, de los conductores.
+\end{itemize}
+
+% =========================
+\section{Flujo de Campo Magnético}
+% =========================
+\subsection*{Definición}
+El flujo magnético total que atraviesa una superficie \(S\) es:
+\[
+\Phi_{B} = \int_{S} \mathbf{B} \cdot d\mathbf{S}
+\quad [\text{Wb}]
+\]
+Donde:
+\begin{itemize}
+  \item \boxed{\mathbf{B} = \mu_0 \mathbf{H})} es la densidad de flujo magnético \([\text{T} = \text{Wb/m}^2]\).
+  \item \(d\mathbf{S}\) es el vector diferencial de área orientado perpendicular a la superficie.
+\end{itemize}
+
+\subsection*{Propiedad fundamental}
+\[
+\nabla \cdot \mathbf{B} = 0 \quad \Rightarrow \quad
+\oint_{S} \mathbf{B} \cdot d\mathbf{S} = 0
+\]
+El flujo total a través de una superficie cerrada es cero. No existen monopolos magnéticos.
+
+
+% =========================
+\section{Potencial Magnetico \(\mathbf{A}\) y $V_m$ }
+% =========================
+\subsection{Potencial magnético escalar $V_{m}$:}
+
+\[\mathbf{H}= -\nabla V_m,\qquad si \qquad\mathbf{J} = 0\]
+
+\subsection{Potencial magnético vector \(\mathbf{A}\):}
+
+\[\]
+\[\mathbf{A}= \int_{L}\frac{\mu Id\mathbf{l}}{4\pi R}
+\]
+
+\[
+\mathbf{B}=\mu_0\mathbf{H}=\nabla\times\mathbf{A},
+\qquad
+\mathbf{A}(\mathbf{r})=\frac{\mu_0}{4\pi}\int
+\frac{\mathbf{J}\,dV}{R}.
+\]
+Para un hilo infinito:
+\[
+\mathbf{A}= \frac{\mu_0 I}{2\pi}\ln\!\left(\frac{r}{r_0}\right)\,
+\hat{\boldsymbol{a}}_{\phi}.
+\]
+
+%\end{document}
+
+
+
+
+
+\end{document}
