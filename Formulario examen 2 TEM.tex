@@ -6,6 +6,9 @@
 \usepackage{graphicx}
 \usepackage{hyperref}
 \usepackage{enumitem}
+\usepackage{float}
+\usepackage{multicol}
+
 
 \title{Formulario de Magnetostática}
 \author{Tu Nombre}
@@ -30,6 +33,15 @@ d\mathbf{H}= \frac{I\,d\mathbf{l}l}{4\pi R^{2}}
              \,\hat{\boldsymbol{a}}_{{\rho}}
              \times\hat{\mathbf{R}}
 \]
+
+Biot-Savart expresiones para distribución de carga 
+
+\[
+I=\int KdN, \text{ dN perpendicular a la direccion de la corriente.}
+\]
+\[ Id\mathbf{L}=\mathbf{K}dS=\mathbf{J}dv
+\]
+
 
 % =========================
 \subsection*{Contribuciones de corrientes}
@@ -68,8 +80,7 @@ Para un punto \(P({\rho},0,0)\) en el plano \(xy\):
 \right)\,\hat{\boldsymbol{a}}_{\phi},
 \]
 donde
-\(\alpha_{1}\) y \(\alpha_{2}\) son los ángulos
-entre el segmento \(P\)‑extremo y el eje \(r\).
+\(\alpha_{1}\) del punto a parte superior y \(\alpha_{2}\) del punto a parte inferior del segmento \(P\)‑extremo y el eje \(r\).
 
 \textbf{Casos límite}
 \begin{itemize}
@@ -93,17 +104,17 @@ La ley de Ampère establece que la integral de línea de \(\mathbf{H}\)
 alrededor de un camino cerrado equivale a la corriente neta \(I_{\mathrm{enc}}\)
 encerrada por dicho camino:
 \[
-\oint_{\mathcal{C}}\mathbf{H}\cdot d\boldsymbol{\ell}= I_{\mathrm{enc}}.
+\oint_{\mathcal{C}}\mathbf{H}\cdot d\mathbf{L}= I_{\mathrm{enc}}.
 \]
 
 \subsection*{Forma inversa}
 \[
-I_{\mathrm{enc}}=\oint_{\mathcal{C}}\mathbf{H}\cdot d\boldsymbol{\ell}.
+I_{\mathrm{enc}}=\oint_{\mathcal{C}}\mathbf{H}\cdot d\mathbf{L}.
 \]
 
 % =========================
 % =========================
-\subsection*{Aplicaciones típicas (con unidades)}
+\subsection*{Aplicaciones típicas}
 % =========================
 \begin{itemize}
   \item \textbf{Hilo recto infinito}  
@@ -288,10 +299,106 @@ Para un hilo infinito:
 \]
 
 
+\section{Tabla de Productos cruz entre vectores}
+\subsection{Rectangulares}
+\begin{table}[H]
+\centering
+\begin{tabular}{c|ccc}
+$\times$ & $\hat{x}$ & $\hat{y}$ & $\hat{z}$ \\
+\hline
+$\hat{x}$ & $0$ & $\hat{z}$ & $-\hat{y}$ \\
+$\hat{y}$ & $-\hat{z}$ & $0$ & $\hat{x}$ \\
+$\hat{z}$ & $\hat{y}$ & $-\hat{x}$ & $0$
+\end{tabular}
+\caption{Producto cruzado en coordenadas rectangulares}
+\end{table}
+\subsection{Cilíndricas}
 
+\begin{table}[H]
+\centering
+\begin{tabular}{c|ccc}
+$\times$ & $\hat{\rho}$ & $\hat{\phi}$ & $\hat{z}$ \\
+\hline
+$\hat{\rho}$ & $0$ & $\hat{z}$ & $-\hat{\phi}$ \\
+$\hat{\phi}$ & $-\hat{z}$ & $0$ & $\hat{\rho}$ \\
+$\hat{z}$ & $\hat{\phi}$ & $-\hat{\rho}$ & $0$
+\end{tabular}
+\caption{Producto cruzado en coordenadas cilíndricas}
+\end{table}
+
+
+\subsection{Esféricas}
+
+\begin{table}[H]
+\centering
+\begin{tabular}{c|ccc}
+$\times$ & $\hat{r}$ & $\hat{\theta}$ & $\hat{\phi}$ \\
+\hline
+$\hat{r}$ & $0$ & $\hat{\phi}$ & $-\hat{\theta}$ \\
+$\hat{\theta}$ & $-\hat{\phi}$ & $0$ & $\hat{r}$ \\
+$\hat{\phi}$ & $\hat{\theta}$ & $-\hat{r}$ & $0$
+\end{tabular}
+\caption{Producto cruzado en coordenadas esféricas}
+\end{table}
+
+\subsection{Combinaciones}
+\begin{table}[H]
+\centering
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{c|ccc}
+$\times$ & $\hat{x}$ & $\hat{y}$ & $\hat{z}$ \\
+\hline
+$\hat{\rho}$ & $-\sin\phi\, \hat{z}$ & $\cos\phi\, \hat{z}$ & $\cos\phi\, \hat{y} - \sin\phi\, \hat{x}$ \\
+$\hat{\phi}$ & $\cos\phi\, \hat{z}$ & $\sin\phi\, \hat{z}$ & $\sin\phi\, \hat{x} + \cos\phi\, \hat{y}$ \\
+$\hat{z}$ (cil) & $\hat{y}$ & $-\hat{x}$ & $0$ \\
+\hline
+$\hat{r}$ & $ \sin\theta\sin\phi\, \hat{z} - \cos\theta\, \hat{y} $ & $ \cos\theta\, \hat{x} - \sin\theta\cos\phi\, \hat{z} $ & $ \sin\theta \cos\phi\, \hat{y} - \sin\theta \sin\phi\, \hat{x} $ \\
+$\hat{\theta}$ & $ \cos\theta\sin\phi\, \hat{z} + \sin\theta\, \hat{y} $ & $ -\sin\theta\, \hat{x} - \cos\theta\cos\phi\, \hat{z} $ & $ \cos\theta \cos\phi\, \hat{y} - \cos\theta \sin\phi\, \hat{x} $ \\
+$\hat{\phi}$ (esf) & $ \hat{y} $ & $ -\hat{x} $ & $0$
+\end{tabular}
+\caption{Productos cruzados mixtos entre coordenadas rectangulares, cilíndricas y esféricas 
+\end{table}
+
+
+\begin{multicols}{2}
 
 \section{Cambios de variable para coordenadas}
 
+\section{Diferenciales en Coordenadas}
+
+\subsection{Rectangulares}
+\begin{align}
+    d\mathbf{l} &= \hat{a}_x \, dx + \hat{a}_y \, dy + \hat{a}_z \, dz \\[6pt]
+    d\mathbf{S} &= \begin{cases}
+        \hat{a}_z \, dx \, dy \\
+        \hat{a}_y \, dz \, dx \\
+        \hat{a}_x \, dy \, dz
+    \end{cases} \\[6pt]
+    dV &= dx \, dy \, dz
+\end{align}
+
+\subsection{Cilíndricas}
+\begin{align}
+    d\mathbf{l} &= \hat{a}_\rho \, d\rho + \hat{a}_\theta \, \rho \, d\theta + \hat{a}_z \, dz \\[6pt]
+    d\mathbf{S} &= \begin{cases}
+        \hat{a}_\rho \, \rho \, d\theta \, dz \\
+        \hat{a}_\theta \, d\rho \, dz \\
+        \hat{a}_z \, \rho \, d\rho \, d\theta
+    \end{cases} \\[6pt]
+    dV &= \rho \, d\rho \, d\theta \, dz
+\end{align}
+
+\subsection{Esféricas}
+\begin{align}
+    d\mathbf{l} &= \hat{a}_r \, dr + \hat{a}_\theta \, r \, d\theta + \hat{a}_\phi \, r \sin \theta \, d\phi \\[6pt]
+    d\mathbf{S} &= \begin{cases}
+        \hat{a}_r \, r^2 \sin\theta \, d\theta \, d\phi \\
+        \hat{a}_\theta \, r \, dr \, d\phi \\
+        \hat{a}_\phi \, r \, dr \, d\theta
+    \end{cases} \\[6pt]
+    dV &= r^2 \sin\theta \, dr \, d\theta \, d\phi
+\end{align}
+\columnbreak
 
 \section{1. Rectangulares a Cilíndricas}
 \begin{equation}
@@ -365,7 +472,75 @@ z = r \cos \theta
     \hat{a}_z = \hat{a}_r \cos \theta - \hat{a}_\theta \sin \theta
 \end{equation}
 
+\end{multicols}
+
+
 \newpage
+
+\section{Figuras Geométricas: Perímetro, Área y Volumen}
+
+\subsection{Círculo}
+\begin{equation*}
+\begin{array}{ll}
+\text{Perímetro (circunferencia):} & P = 2\pi r \\[5pt]
+\text{Área:} & A = \pi r^2
+\end{array}
+\end{equation*}
+
+\subsection{Cilindro}
+\begin{equation*}
+\begin{array}{ll}
+\text{Área lateral:} & A_L = 2\pi r h \\[5pt]
+\text{Área total:} & A_T = 2\pi r h + 2\pi r^2 \\[5pt]
+\text{Volumen:} & V = \pi r^2 h
+\end{array}
+\end{equation*}
+
+\subsection{Esfera}
+\begin{equation*}
+\begin{array}{ll}
+\text{Área superficial:} & A = 4\pi r^2 \\[5pt]
+\text{Volumen:} & V = \frac{4}{3} \pi r^3
+\end{array}
+\end{equation*}
+
+\subsection{Cono}
+\begin{equation*}
+\begin{array}{ll}
+\text{Área lateral:} & A_L = \pi r l \\[5pt]
+\text{Área total:} & A_T = \pi r l + \pi r^2 \\[5pt]
+\text{Volumen:} & V = \frac{1}{3} \pi r^2 h
+\end{array}
+\end{equation*}
+
+\subsection{Cubo}
+\begin{equation*}
+\begin{array}{ll}
+\text{Área total:} & A_T = 6a^2 \\[5pt]
+\text{Volumen:} & V = a^3    
+\end{array}
+\end{equation*}
+
+\subsection{Prisma Rectangular (Paralelepípedo)}
+\begin{equation*}
+\begin{array}{ll}
+\text{Área total:} & A_T = 2(ab + bc + ac) \\[5pt]
+\text{Volumen:} & V = abc
+\end{array}
+\end{equation*}
+
+\subsection{Polígono Regular de \(n\) lados}
+\begin{equation*}
+\begin{array}{ll}
+    \text{Perímetro} \quad P &= n \cdot l \\[5pt]
+    \text{Apotema} \quad a &= \frac{l}{2 \tan\left( \frac{\pi}{n} \right)} \\[5pt]
+    \text{Área} \quad A &= \frac{n \cdot l \cdot a}{2} = \frac{n l^2}{4 \tan\left( \frac{\pi}{n} \right)}
+\end{array}
+\end{equation*}
+
+\newpage
+
+
 
 \section*{Integrales Comunes}
 
