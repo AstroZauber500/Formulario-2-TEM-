@@ -80,7 +80,7 @@ Para un punto \(P({\rho},0,0)\) en el plano \(xy\):
 \right)\,\hat{\boldsymbol{a}}_{\phi},
 \]
 donde
-\(\alpha_{1}\) del punto a parte superior y \(\alpha_{2}\) del punto a parte inferior del segmento \(P\)‑extremo y el eje \(r\).
+\(\alpha_{1}\) del punto donde inicia I \(\alpha_{2}\) del punto donde termina I, \(P\)‑extremo y el eje \(r\).
 
 \textbf{Casos límite}
 \begin{itemize}
@@ -107,9 +107,9 @@ encerrada por dicho camino:
 \oint_{\mathcal{C}}\mathbf{H}\cdot d\mathbf{L}= I_{\mathrm{enc}}.
 \]
 
-\subsection*{Forma inversa}
+\subsection*{Ecuacion de Maxwell}
 \[
-I_{\mathrm{enc}}=\oint_{\mathcal{C}}\mathbf{H}\cdot d\mathbf{L}.
+rot(\mathbf{H})=\nabla \times \mathbf{H} = \mathbf{J}
 \]
 
 % =========================
@@ -154,6 +154,89 @@ I_{\mathrm{enc}}=\oint_{\mathcal{C}}\mathbf{H}\cdot d\mathbf{L}.
         Donde \(a\) y \(b\) son los radios interno y externo, respectivamente, de los conductores.
 \end{itemize}
 
+\newpage
+
+\section*{Geometría del Problema}
+
+Se tiene un conductor coaxial con las siguientes regiones definidas:
+
+\begin{itemize}
+    \item Conductor interior: radio \( a \)
+    \item Región dieléctrica: entre \( a \) y \( b \)
+    \item Blindaje exterior (conductor de retorno): entre \( b \) y \( c \)
+    \item Exterior del sistema: \( \rho \geq c \)
+\end{itemize}
+
+La corriente \( I \) fluye por el conductor interior en dirección \( +\hat{z} \) y retorna por el blindaje exterior con corriente \( -I \), distribuida uniformemente en la sección anular.
+
+\section*{Ley de Ampère}
+
+\[
+\oint \vec{H} \cdot d\vec{l} = I_{\text{enc}}
+\]
+
+Por simetría cilíndrica:
+
+\[
+\vec{H} = H_\phi(\rho)\, \hat{\phi} \quad \text{y} \quad d\vec{l} = \rho\, d\phi\, \hat{\phi}
+\Rightarrow \oint \vec{H} \cdot d\vec{l} = 2\pi \rho H_\phi(\rho)
+\]
+
+\section*{Regiones y Resultados}
+
+\subsection*{Región I: \( 0 \leq \rho < a \)}
+
+Corriente encerrada proporcional al área:
+
+\[
+I_{\text{enc}} = I \cdot \frac{\rho^2}{a^2}
+\Rightarrow
+H_\phi(\rho) = \frac{I}{2\pi a^2} \rho
+\]
+
+\subsection*{Región II: \( a \leq \rho < b \)}
+
+Toda la corriente \( I \) está encerrada:
+
+\[
+H_\phi(\rho) = \frac{I}{2\pi \rho}
+\]
+
+\subsection*{Región III: \( b \leq \rho < c \)}
+
+La corriente de retorno está distribuida uniformemente en el blindaje:
+
+\[
+I_{\text{enc}} = I - I \cdot \frac{\rho^2 - b^2}{c^2 - b^2}
+= I \cdot \frac{c^2 - \rho^2}{c^2 - b^2}
+\]
+
+\[
+H_\phi(\rho) = \frac{I}{2\pi \rho} \cdot \frac{c^2 - \rho^2}{c^2 - b^2}
+\]
+
+\subsection*{Región IV: \( \rho \geq c \)}
+
+Toda la corriente neta es cero:
+
+\[
+H_\phi(\rho) = 0
+\]
+
+\section*{Resumen General}
+
+\[
+H_\phi(\rho) = 
+\begin{cases}
+\displaystyle \frac{I}{2\pi a^2} \rho, & 0 \leq \rho < a \\[10pt]
+\displaystyle \frac{I}{2\pi \rho}, & a \leq \rho < b \\[10pt]
+\displaystyle \frac{I}{2\pi \rho} \cdot \frac{c^2 - \rho^2}{c^2 - b^2}, & b \leq \rho < c \\[10pt]
+0, & \rho \geq c
+\end{cases}
+\]
+
+\newpage
+
 % =========================
 \section{Flujo de Campo Magnético}
 % =========================
@@ -169,7 +252,7 @@ Donde:
   \item \(d\mathbf{S}\) es el vector diferencial de área orientado perpendicular a la superficie.
 \end{itemize}
 
-\subsection*{Propiedad fundamental}
+\subsection*{Propiedad fundamental (flujo \(\phi)\)}
 \[
 \nabla \cdot \mathbf{B} = 0 \quad \Rightarrow \quad
 \oint_{S} \mathbf{B} \cdot d\mathbf{S} = 0
@@ -186,13 +269,15 @@ El flujo total a través de una superficie cerrada es cero. No existen monopolos
 
 \subsection{Potencial magnético vector \(\mathbf{A}\):}
 
-\[\]
-\[\mathbf{A}= \int_{L}\frac{\mu Id\mathbf{l}}{4\pi R}
+\[
+\mathbf{B} =\mu_0\mathbf{H}= \nabla \times \mathbf{A} = rot(\mathbf{A})
 \]
 
 \[
-\mathbf{B}=\mu_0\mathbf{H}=\nabla\times\mathbf{A},
-\qquad
+\mathbf{A}= \int_{L}\frac{\mu Id\mathbf{l}}{4\pi R}
+\]
+
+\[
 \mathbf{A}(\mathbf{r})=\frac{\mu_0}{4\pi}\int
 \frac{\mathbf{J}\,dV}{R}.
 \]
