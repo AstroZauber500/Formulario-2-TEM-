@@ -289,6 +289,171 @@ Para un hilo infinito:
 
 \newpage
 
+\begin{multicols}{2}
+
+\section*{Dipolo magnético}
+
+\subsection*{Potencial magnético de una espira (esféricas)}
+
+
+\[
+\vec{A} = \frac{\mu_0 m \sin\theta}{4\pi r^2} \, \hat{a}_\phi
+\]
+
+
+\subsection*{Campo magnético}
+
+
+\[
+\vec{B} = \nabla \times \vec{A} = \frac{\mu_0 m}{4\pi r^3} \left( 2\cos\theta \, \hat{a}_r + \sin\theta \, \hat{a}_\theta \right)
+\]
+
+\section*{Condiciones de frontera del campo magnético}
+
+\subsubsection*{Componente tangencial de \( \vec{H} \)}
+
+\[
+\hat{a}_n \times \left( \vec{H}_2 - \vec{H}_1 \right) = \vec{K}
+\]
+
+\begin{itemize}
+  \item Si \( \vec{K} = 0 \Rightarrow \vec{H}_{1t} = \vec{H}_{2t} \)
+  \item Si \( \vec{K} \neq 0 \Rightarrow \vec{H}_{2t} - \vec{H}_{1t} = \vec{K} \times \hat{a}_n \)
+\end{itemize}
+
+\subsubsection*{Componente normal}
+
+\[
+\vec{B}_{1n} = \vec{B}_{2n}
+\quad \Rightarrow \quad \mu_1 \vec{H}_{1n} = \mu_2 \vec{H}_{2n}
+\]
+
+\subsubsection*{Cálculo de la componente normal de \( \vec{H} \)}
+
+Si \( \hat{a}_n \) es el vector unitario normal a la superficie, entonces:
+
+\[
+H_n = \vec{H} \cdot \hat{a}_n
+\]
+
+\[
+\vec{H}_n = \left( \vec{H} \cdot \hat{a}_n \right) \hat{a}_n
+\]
+
+\[
+\vec{H}_t = \vec{H} - \vec{H}_n
+\]
+
+\subsection*{Relación angular en la frontera magnética}
+
+\[
+\frac{\tan\theta_1}{\tan\theta_2} = \frac{\mu_1}{\mu_2}
+\]
+
+
+\section*{Inductancia e Inductancia Mutua}
+
+\subsection*{Flujo magnético}
+
+\[
+\Phi = \int_S \vec{B} \cdot d\vec{S}
+\quad\text{[Wb]}
+\]
+
+\subsection*{Inductancia propia}
+
+\[
+L = \frac{N \, \Phi}{I}
+\quad\text{[H]}
+\]
+
+
+\subsection*{Energía almacenada en el campo magnético}
+
+\[
+W = \frac{1}{2} L I^2
+\quad\text{[J]}
+\]
+
+\subsection*{Inductancia mutua}
+
+\[
+M_{21} = \frac{N_2 \Phi_{21}}{I_1}
+\quad\text{[H]}
+\]
+
+\[
+M_{12} = \frac{N_1 \Phi_{12}}{I_2}
+\quad\text{[H]}
+\]
+
+\subsection*{Igualdad de inductancia mutua}
+
+\[
+\boxed{M_{12} = M_{21} = M}
+\quad\text{(por reciprocidad)}
+\]
+
+\subsection*{Energía para dos inductores acoplados}
+
+\[
+W = \frac{1}{2} L_1 I_1^2 + \frac{1}{2} L_2 I_2^2 \pm M I_1 I_2
+\]
+
+\section*{Inductancia de arreglos comunes}
+
+\subsection*{1. Hilo recto (aislado, largo)}
+
+\[
+L = \frac{\mu_0 l}{2\pi} \left( \ln\left( \frac{2l}{r} \right) - 1 \right)
+\quad\text{[H]}
+\]
+
+
+\subsection*{2. Dos conductores paralelos (línea bifilar)}
+
+\[
+L = \frac{\mu_0 l}{\pi} \left( \ln\left( \frac{d}{r} \right) + \frac{1}{4} \right)
+\quad\text{[H]}
+\]
+
+- \( d \): distancia entre los centros de los conductores  
+
+\subsection*{3. Par coaxial (conductor coaxial)}
+
+\[
+L = \frac{\mu_0 l}{2\pi} \ln\left( \frac{b}{a} \right)
+\quad\text{[H]}
+\]
+
+- \( a \): radio interior  
+- \( b \): radio exterior  
+
+\subsection*{4. Solenoide largo}
+
+\[
+L = \mu_0 \frac{N^2 S}{l}
+\quad\text{[H]}
+\]
+
+
+\subsection*{5. Toroide (núcleo magnético circular)}
+
+\[
+L = \frac{\mu N^2 h}{2\pi} \ln\left( \frac{b}{a} \right)
+\quad\text{[H]}
+\]
+
+- \( a \), \( b \): radios interior y exterior del toroide  
+
+
+
+
+\end{multicols}
+
+
+\newpage
+
 \section{Divergencia, Gradiente y Laplaciano}
 
 \subsection{Divergencia}
